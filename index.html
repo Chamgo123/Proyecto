@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda en Línea</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Tienda en Línea</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="Contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="productos">
+        <div class="producto">
+            <img src="producto1.jpg" alt="Producto 1">
+            <h2>Producto 1</h2>
+            <p>Descripción del Producto 1</p>
+            <p class="precio">$99.99</p>
+            <button onclick="addToCart('Producto 1')">Añadir al carrito</button>
+        </div>
+        <div class="producto">
+            <img src="producto2.jpg" alt="Producto 2">
+            <h2>Producto 2</h2>
+            <p>Descripción del Producto 2</p>
+            <p class="precio">$79.99</p>
+            <button onclick="addToCart('Producto 2')">Añadir al carrito</button>
+        </div>
+        <!-- Agrega más productos aquí -->
+    </section>
+
+    <section class="carrito">
+        <h2>Carrito de Compras</h2>
+        <ul id="carrito-lista">
+            <!-- Los elementos del carrito se agregarán aquí dinámicamente -->
+        </ul>
+    </section>
+
+    <footer>
+        <div class="contacto-footer">
+            <p>Correo electrónico: info@tiendaenlinea.com</p>
+            <p>Teléfono: +1 234 567 8901</p>
+        </div>
+        <div class="redes-sociales-footer">
+            <a href="#"><img src="facebook.jpeg" alt="Facebook"></a>
+            <a href="#"><img src="twitter.jpeg" alt="Twitter"></a>
+            <a href="#"><img src="insta.jpeg" alt="Instagram"></a>
+        </div>
+        <p>&copy; 2023 Tienda en Línea</p>
+    </footer>
+
+    <script>
+        let cart = [];
+
+        function addToCart(product) {
+            cart.push(product);
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartList = document.getElementById('carrito-lista');
+            cartList.innerHTML = '';
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.innerText = item;
+                cartList.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
+
